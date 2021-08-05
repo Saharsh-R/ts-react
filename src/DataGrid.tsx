@@ -11,7 +11,7 @@ export default function DataGrid<T extends HasId>({ items }: DataGridProps<T>) {
 		<>
 			<ul>
 				{items.map((item) => (
-					<li>{JSON.stringify(item)}</li>
+					<li key = {item.id}>{JSON.stringify(item)}</li>
                     // item. -> id comes as an autosuggestion
 				))}
 			</ul>
