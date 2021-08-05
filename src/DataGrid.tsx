@@ -1,14 +1,18 @@
-interface DataGridProps {
-	// Do NOT use any
-	items: any[];
+interface HasId {
+    id: number
 }
 
-export default function DataGrid({ items }: DataGridProps) {
+interface DataGridProps<T> {
+	items: T[];
+}
+
+export default function DataGrid<T extends HasId>({ items }: DataGridProps<T>) {
 	return (
 		<>
 			<ul>
 				{items.map((item) => (
 					<li>{JSON.stringify(item)}</li>
+                    // item. -> id comes as an autosuggestion
 				))}
 			</ul>
 		</>

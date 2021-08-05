@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Checkout from "./Checkout";
+import DataDashboard from "./DataDashboard";
 import FormComponent from "./form";
 import { User } from "./interfaces";
 
@@ -48,6 +49,8 @@ function App() {
       <FormComponent/>
       <hr />
       <Checkout />
+      <hr />
+      <DataDashboard />
       <hr />
 		</>
 	);
