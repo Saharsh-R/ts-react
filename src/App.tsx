@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormComponent from "./form";
 import { User } from "./interfaces";
 
 interface AppProps {
@@ -42,6 +43,8 @@ function App() {
 			/>
       <hr />
 			<ShowUser />
+      <hr />
+      <FormComponent/>
       <hr />
 		</>
 	);
