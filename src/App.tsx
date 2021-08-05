@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Checkout from "./Checkout";
 import FormComponent from "./form";
 import { User } from "./interfaces";
 
@@ -22,7 +23,7 @@ function ShowUser() {
 		setUser({
 			name: "saharsh",
 			country: "india",
-			age: 23,
+			age: 22,
 		});
 
 	return (
@@ -45,6 +46,8 @@ function App() {
 			<ShowUser />
       <hr />
       <FormComponent/>
+      <hr />
+      <Checkout />
       <hr />
 		</>
 	);
