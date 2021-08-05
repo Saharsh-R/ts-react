@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { User } from "./interfaces";
+
+interface AppProps {
+	headerText: string;
+	extraText?: string; // optional, not required
+}
+
+function Header({ headerText, extraText }: AppProps) {
+	return (
+		<>
+			<h1>{headerText}</h1>
+			{extraText && <p>{extraText}</p>}
+		</>
+	);
+}
+
+function ShowUser() {
+	const [user, setUser] = useState<User | null>(null);
+	const fetchUser = () =>
+		setUser({
+			name: "saharsh",
+			country: "india",
+			age: 23,
+		});
+
+	return (
+		<>
+			<button onClick={fetchUser} disabled = {user != null}>Assign the user</button>
+      {user && <pre>{JSON.stringify(user, null, 2)}</pre>}
+		</>
+	);
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<Header headerText="Hi there!" />
+			<Header
+				headerText="Hello again!"
+				extraText="This is totally optional"
+			/>
+      <hr />
+			<ShowUser />
+      <hr />
+		</>
+	);
 }
 
 export default App;
